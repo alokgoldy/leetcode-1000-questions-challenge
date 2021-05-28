@@ -1,0 +1,35 @@
+Question Link - https://practice.geeksforgeeks.org/problems/sort-an-array-of-0s-1s-and-2s4231/1#
+
+
+class Solution
+{
+    public:
+    void sort012(int a[], int n)
+    {
+        // coode here 
+        
+        int l=0,m=0,h=n-1;
+        
+        while(m<=h)
+        {
+            switch(a[m])
+            {
+                case 0:
+                    swap(a[l],a[m]);
+                    m++;
+                    l++;
+                    break;
+                
+                case 1:
+                    m++;
+                    break;
+                    
+                case 2:
+                    swap(a[m],a[h]);
+                    h--;
+                    break;
+            }
+        }
+    }
+    
+};  }
