@@ -18,7 +18,7 @@ public:
     }
 };
 
-var isValid = function(s) {
+var isValid = function(s) { 
     let stack = [];
     let mapping = new Map([[')', '('], [']', '['], ['}', '{']]);
 
