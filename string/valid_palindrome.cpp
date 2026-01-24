@@ -48,3 +48,19 @@ public:
        return true;
     }
 };
+
+class Solution {
+public:
+    bool isPalindrome(string s) {
+        string t = "";
+
+        for(int i = 0; i< s.length(); i++){
+            if(isalnum(s[i])){
+                t+=tolower(s[i]);
+            }
+        }
+        string c = t;
+        reverse(t.begin(), t.end());
+        return c==t;
+    }
+};
