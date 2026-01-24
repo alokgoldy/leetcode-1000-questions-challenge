@@ -40,3 +40,40 @@ public:
         return output;        
     }
 };
+
+class Solution {
+public:
+    vector<int> productExceptSelf(vector<int>& nums) {
+        int total = 1;
+        bool con = false;
+        int zero = 0;
+        for(int i = 0; i < nums.size(); ++i)
+        {
+            if(nums[i] == 0) 
+            {
+                con = true;
+                zero++;
+            }
+            else total *= nums[i];
+        }
+        if(zero > 1) total = 0;
+        vector<int> vec;
+        for(int i = 0; i < nums.size(); ++i)
+        {
+            if(con == true && nums[i] != 0) 
+            {
+                vec.push_back(0);
+            }
+            else if(con == false)
+            {
+                int to = total / nums[i];
+                vec.push_back(to);
+            }
+            else if(con == true && nums[i] == 0)
+            {
+                vec.push_back(total);
+            }
+        }
+        return vec;
+    }
+};
