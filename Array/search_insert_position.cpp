@@ -40,3 +40,21 @@ var searchInsert = function(nums, target) {
 
     return left;
 };
+
+
+class Solution {
+public:
+    int searchInsert(vector<int>& nums, int target) {
+        int j = 0;
+        sort(nums.begin(), nums.end());
+        while(j<nums.size()){
+            if(nums[j]==target){
+                return j;
+            }else if (nums[j]>target){
+                return j;
+            } 
+            j++;
+        }
+        return j;
+    }
+};
