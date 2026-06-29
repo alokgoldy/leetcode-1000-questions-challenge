@@ -32,3 +32,25 @@ public:
         return ans;
     }
 };
+
+var maxVowels = function(s, k) {
+    const vowels = new Set(['a','e','i','o','u']);
+    
+    let currentCount = 0;
+    let maxCount = 0;
+    
+    // Step 1: First k characters, let's count
+    for (let i = 0; i < k; i++) {
+        if (vowels.has(s[i])) currentCount++;
+    }
+    maxCount = currentCount;
+    
+    // Step 2: Slide
+    for (let i = k; i < s.length; i++) {
+        if (vowels.has(s[i])) currentCount++;          // add new
+        if (vowels.has(s[i - k])) currentCount--;      // remove old
+        maxCount = Math.max(maxCount, currentCount);   // update record
+    }
+    
+    return maxCount;
+};
